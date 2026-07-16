@@ -1,39 +1,30 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+add_newline = false
 palette = 'krypton'
 scan_timeout = 30
 command_timeout = 800
 
 format = """
-[╭✦](krypton_dim)\
 [](krypton_purple)\
+[⋆·˚](bold fg:star_white bg:krypton_purple)\
+[━━](bold fg:star_white bg:krypton_purple)\
 [ t3m3d ](bold fg:krypton_bg bg:krypton_purple)\
-[·˙](fg:star_dust bg:krypton_purple)\
-[━━━](fg:star_white bg:krypton_purple)\
+[━━━━━](bold fg:star_white bg:krypton_purple)\
 [✦](bold fg:star_white bg:krypton_purple)\
-[ COSMIC  ](bold fg:krypton_bg bg:krypton_purple)\
-[](fg:krypton_purple bg:krypton_purple)\
+[ · ](bold fg:star_white bg:krypton_purple)\
 $os\
 $shell\
-[](fg:krypton_purple bg:krypton_purple)\
+[ · ](bold fg:star_white bg:krypton_purple)\
 $directory\
+[ ✧ ](bold fg:star_white bg:krypton_purple)\
 [](krypton_purple) \
 $hostname\
-[✧](krypton_purple) \
 ${custom.github}\
 $git_branch\
 $git_status\
 $git_state\
 $git_metrics\
-$fill\
-$cmd_duration\
-$status\
-$jobs\
-$time\
-$line_break\
-[╰⋆](krypton_dim)\
-[✦ ORBIT](bold krypton_purple) \
 $nodejs\
 $python\
 $rust\
@@ -44,6 +35,9 @@ $kotlin\
 $lua\
 $swift\
 $docker_context\
+$cmd_duration\
+$status\
+$jobs\
 $character"""
 
 [palettes.krypton]
@@ -52,21 +46,21 @@ krypton_fg = '#E6DDFF'
 krypton_dim = '#5C3A92'
 krypton_purple = '#8B5CF6'
 krypton_red = '#F14C4C'
-star_white = '#F4F0FF'
+star_white = '#FFFFFF'
 star_dust = '#4B2A78'
 
 [os]
 disabled = false
-format = '[ $symbol](bold fg:krypton_bg bg:krypton_purple)'
+format = '[$symbol](bold fg:krypton_bg bg:krypton_purple)'
 
 [os.symbols]
-Windows = ''
+Windows = ''
 Macos = ''
 Linux = ''
 
 [shell]
 disabled = false
-format = '[· $indicator ](bold fg:krypton_bg bg:krypton_purple)'
+format = '[ $indicator](bold fg:krypton_bg bg:krypton_purple)'
 powershell_indicator = 'pwsh'
 cmd_indicator = 'cmd'
 bash_indicator = 'bash'
@@ -81,7 +75,7 @@ format = '[@$hostname]($style) '
 style = 'bold krypton_purple'
 
 [directory]
-format = '[ ⌖ $path ]($style)[$read_only]($read_only_style)'
+format = '[ $path]($style)[$read_only]($read_only_style)'
 style = 'bold fg:krypton_bg bg:krypton_purple'
 read_only = ' '
 read_only_style = 'bold fg:krypton_red bg:krypton_purple'
