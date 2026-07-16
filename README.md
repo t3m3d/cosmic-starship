@@ -100,6 +100,20 @@ pull, and then reapplies the latest prompt with `install.sh`. If executable
 permissions were lost, use `sh ./update.sh` or restore them with
 `chmod +x update.sh`.
 
+## Update on Windows
+
+From an existing Git clone, run in Command Prompt or PowerShell:
+
+```bat
+cd cosmic-starship
+update.bat
+```
+
+The Windows updater provides the same local-change and fast-forward safeguards,
+then reapplies the prompt with `install.ps1`. It prefers PowerShell 7 (`pwsh`)
+and falls back to Windows PowerShell when necessary. It can also be launched by
+double-clicking `update.bat` in File Explorer.
+
 ## Platform identity
 
 | Platform | Prompt mark |

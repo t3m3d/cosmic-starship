@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = true
+add_newline = false
 palette = 'krypton'
 scan_timeout = 30
 command_timeout = 800
@@ -8,40 +8,20 @@ command_timeout = 800
 format = """
 [·  ˚  ✧](star_dust)\
 [━━](bold krypton_dim)\
-[━━━](bold comet_mid)\
 [━━━━](bold krypton_purple)\
-[✦](bold star_white) \
-[t3m3d](bold krypton_purple) \
-[aboard](krypton_dim) \
+[☄](bold star_white)\
+[  ](none)\
+$username\
 $os\
-$shell\
-[in](krypton_dim) \
+[⌖ ](bold krypton_purple)\
 $directory\
-$fill\
-$cmd_duration\
-$status\
-$jobs\
-$time\
-$line_break\
-[·˚](star_dust)\
-[✧](krypton_dim) \
-$hostname\
-${custom.github}\
 $git_branch\
 $git_status\
-$git_state\
-$git_metrics\
-$nodejs\
-$python\
-$rust\
-$golang\
-$dotnet\
-$java\
-$kotlin\
-$lua\
-$swift\
-$docker_context\
 $character"""
+
+[username]
+show_always = true
+format = '[$user](bold krypton_purple) '
 
 [palettes.krypton]
 krypton_bg = '#05070C'
@@ -55,7 +35,7 @@ star_dust = '#352052'
 
 [os]
 disabled = false
-format = '[$symbol](bold krypton_purple) '
+format = '[$symbol](bold krypton_purple)'
 
 [os.symbols]
 Windows = ''
@@ -64,7 +44,7 @@ Linux = ''
 
 [shell]
 disabled = false
-format = '[$indicator](bold krypton_purple) '
+format = '[:$indicator](bold krypton_purple) '
 powershell_indicator = 'pwsh'
 cmd_indicator = 'cmd'
 bash_indicator = 'bash'
@@ -155,8 +135,8 @@ time_format = '%H:%M'
 style = 'bold krypton_purple'
 
 [character]
-success_symbol = '[✦](bold star_white) '
-error_symbol = '[✦](bold krypton_red) '
+success_symbol = '[▶](bold star_white) '
+error_symbol = '[▶](bold krypton_red) '
 vimcmd_symbol = '[❮](bold krypton_purple)'
 vimcmd_replace_one_symbol = '[❮](bold krypton_purple)'
 vimcmd_replace_symbol = '[❮](bold krypton_purple)'
