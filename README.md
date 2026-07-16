@@ -85,6 +85,21 @@ up before the hook is added. If Starship itself is missing, install it with
 Open a new shell after installation. Existing Starship sessions usually pick up
 the configuration on the next prompt.
 
+## Update on macOS or Linux
+
+From an existing Git clone, run:
+
+```sh
+cd cosmic-starship
+./update.sh
+```
+
+The updater works from any current directory when invoked with its path. It
+fast-forwards the current branch, preserves local changes by stopping before a
+pull, and then reapplies the latest prompt with `install.sh`. If executable
+permissions were lost, use `sh ./update.sh` or restore them with
+`chmod +x update.sh`.
+
 ## Platform identity
 
 | Platform | Prompt mark |
