@@ -7,16 +7,20 @@ command_timeout = 800
 
 format = """
 [╭✦](krypton_dim)\
-[](nebula_pink)\
-[ ✦ t3m3d // COSMIC  ](bold fg:krypton_bg bg:nebula_pink)\
-[](fg:nebula_pink bg:krypton_violet)\
+[](krypton_purple)\
+[ t3m3d ](bold fg:krypton_bg bg:krypton_purple)\
+[·˙](fg:star_dust bg:krypton_purple)\
+[━━━](fg:star_white bg:krypton_purple)\
+[✦](bold fg:star_white bg:krypton_purple)\
+[ COSMIC  ](bold fg:krypton_bg bg:krypton_purple)\
+[](fg:krypton_purple bg:krypton_purple)\
 $os\
 $shell\
-[](fg:krypton_violet bg:krypton_blue)\
+[](fg:krypton_purple bg:krypton_purple)\
 $directory\
-[](krypton_blue) \
+[](krypton_purple) \
 $hostname\
-[✧](nebula_pink) \
+[✧](krypton_purple) \
 ${custom.github}\
 $git_branch\
 $git_status\
@@ -29,7 +33,7 @@ $jobs\
 $time\
 $line_break\
 [╰⋆](krypton_dim)\
-[✦ ORBIT](bold krypton_cyan) \
+[✦ ORBIT](bold krypton_purple) \
 $nodejs\
 $python\
 $rust\
@@ -44,21 +48,16 @@ $character"""
 
 [palettes.krypton]
 krypton_bg = '#05070C'
-krypton_fg = '#D8DAD4'
-krypton_dim = '#7E899B'
-krypton_cyan = '#53E0D5'
-krypton_violet = '#9B7BF2'
-krypton_blue = '#3B8EEA'
-krypton_green = '#23D18B'
-krypton_amber = '#F5C451'
+krypton_fg = '#E6DDFF'
+krypton_dim = '#5C3A92'
+krypton_purple = '#8B5CF6'
 krypton_red = '#F14C4C'
-nebula_pink = '#FF5FD7'
-nebula_indigo = '#6A5CFF'
-star_white = '#E8F7FF'
+star_white = '#F4F0FF'
+star_dust = '#4B2A78'
 
 [os]
 disabled = false
-format = '[ $symbol](bold fg:krypton_bg bg:krypton_violet)'
+format = '[ $symbol](bold fg:krypton_bg bg:krypton_purple)'
 
 [os.symbols]
 Windows = ''
@@ -67,7 +66,7 @@ Linux = ''
 
 [shell]
 disabled = false
-format = '[· $indicator ](bold fg:krypton_bg bg:krypton_violet)'
+format = '[· $indicator ](bold fg:krypton_bg bg:krypton_purple)'
 powershell_indicator = 'pwsh'
 cmd_indicator = 'cmd'
 bash_indicator = 'bash'
@@ -79,13 +78,13 @@ unknown_indicator = 'shell'
 [hostname]
 ssh_only = true
 format = '[@$hostname]($style) '
-style = 'bold krypton_blue'
+style = 'bold krypton_purple'
 
 [directory]
 format = '[ ⌖ $path ]($style)[$read_only]($read_only_style)'
-style = 'bold fg:krypton_bg bg:krypton_blue'
+style = 'bold fg:krypton_bg bg:krypton_purple'
 read_only = ' '
-read_only_style = 'bold fg:krypton_red bg:krypton_blue'
+read_only_style = 'bold fg:krypton_red bg:krypton_purple'
 truncation_length = 3
 truncation_symbol = '…/'
 home_symbol = '~'
@@ -96,17 +95,17 @@ command = 'git config --get remote.origin.url'
 when = '''git config --get-regexp "^remote\..*\.url$" "github\.com[:/]"'''
 require_repo = true
 symbol = ' '
-style = 'bold krypton_cyan'
+style = 'bold krypton_purple'
 format = '[$symbol]($style)'
 
 [git_branch]
 format = '[$symbol$branch(:$remote_branch)]($style) '
 symbol = ' '
-style = 'bold krypton_violet'
+style = 'bold krypton_purple'
 
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'
-style = 'bold krypton_amber'
+style = 'bold krypton_purple'
 conflicted = '='
 ahead = '⇡${count}'
 behind = '⇣${count}'
@@ -126,8 +125,8 @@ style = 'bold krypton_red'
 [git_metrics]
 disabled = false
 format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
-added_style = 'bold krypton_green'
-deleted_style = 'bold krypton_red'
+added_style = 'bold krypton_purple'
+deleted_style = 'bold krypton_purple'
 
 [fill]
 symbol = '·'
@@ -136,12 +135,12 @@ style = 'krypton_dim'
 [cmd_duration]
 min_time = 500
 format = '[󱎫 $duration]($style) '
-style = 'bold krypton_amber'
+style = 'bold krypton_purple'
 show_milliseconds = false
 
 [jobs]
 symbol = '✦'
-format = '[$symbol$number](bold krypton_violet) '
+format = '[$symbol$number](bold krypton_purple) '
 number_threshold = 1
 
 [status]
@@ -153,67 +152,67 @@ style = 'bold krypton_red'
 
 [time]
 disabled = false
-format = '[](krypton_blue)[ 󰥔 $time ](bold fg:krypton_bg bg:krypton_blue)[](krypton_blue)'
+format = '[](krypton_purple)[ 󰥔 $time ](bold fg:krypton_bg bg:krypton_purple)[](krypton_purple)'
 time_format = '%H:%M'
-style = 'krypton_blue'
+style = 'krypton_purple'
 
 [character]
-success_symbol = '[➜](bold krypton_cyan)'
+success_symbol = '[➜](bold krypton_purple)'
 error_symbol = '[➜](bold krypton_red)'
-vimcmd_symbol = '[❮](bold krypton_green)'
-vimcmd_replace_one_symbol = '[❮](bold krypton_violet)'
-vimcmd_replace_symbol = '[❮](bold krypton_violet)'
-vimcmd_visual_symbol = '[❮](bold krypton_amber)'
+vimcmd_symbol = '[❮](bold krypton_purple)'
+vimcmd_replace_one_symbol = '[❮](bold krypton_purple)'
+vimcmd_replace_symbol = '[❮](bold krypton_purple)'
+vimcmd_visual_symbol = '[❮](bold krypton_purple)'
 
 [nodejs]
 format = '[$symbol($version )]($style)'
 symbol = '⬢ '
-style = 'bold krypton_green'
+style = 'bold krypton_purple'
 
 [python]
 format = '[$symbol${pyenv_prefix}(${version})( \($virtualenv\)) ]($style)'
 symbol = ' '
-style = 'bold krypton_amber'
+style = 'bold krypton_purple'
 
 [rust]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_red'
+style = 'bold krypton_purple'
 
 [golang]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_cyan'
+style = 'bold krypton_purple'
 
 [dotnet]
 format = '[$symbol($version )(🎯 $tfm )]($style)'
 symbol = ' '
-style = 'bold krypton_violet'
+style = 'bold krypton_purple'
 
 [java]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_red'
+style = 'bold krypton_purple'
 
 [kotlin]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_violet'
+style = 'bold krypton_purple'
 
 [lua]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_blue'
+style = 'bold krypton_purple'
 
 [swift]
 format = '[$symbol($version )]($style)'
 symbol = ' '
-style = 'bold krypton_amber'
+style = 'bold krypton_purple'
 
 [docker_context]
 format = '[$symbol$context]($style) '
 symbol = ' '
-style = 'bold krypton_blue'
+style = 'bold krypton_purple'
 
 [package]
 disabled = true
