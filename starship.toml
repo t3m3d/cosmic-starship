@@ -1,24 +1,30 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = false
+add_newline = true
 palette = 'krypton'
 scan_timeout = 30
 command_timeout = 800
 
 format = """
-[](krypton_purple)\
-[⋆·˚](bold fg:star_white bg:krypton_purple)\
-[━━](bold fg:star_white bg:krypton_purple)\
-[ t3m3d ](bold fg:krypton_bg bg:krypton_purple)\
-[━━━━━](bold fg:star_white bg:krypton_purple)\
-[✦](bold fg:star_white bg:krypton_purple)\
-[ · ](bold fg:star_white bg:krypton_purple)\
+[·  ˚  ✧](star_dust)\
+[━━](bold krypton_dim)\
+[━━━](bold comet_mid)\
+[━━━━](bold krypton_purple)\
+[✦](bold star_white) \
+[t3m3d](bold krypton_purple) \
+[aboard](krypton_dim) \
 $os\
 $shell\
-[ · ](bold fg:star_white bg:krypton_purple)\
+[in](krypton_dim) \
 $directory\
-[ ✧ ](bold fg:star_white bg:krypton_purple)\
-[](krypton_purple) \
+$fill\
+$cmd_duration\
+$status\
+$jobs\
+$time\
+$line_break\
+[·˚](star_dust)\
+[✧](krypton_dim) \
 $hostname\
 ${custom.github}\
 $git_branch\
@@ -35,9 +41,6 @@ $kotlin\
 $lua\
 $swift\
 $docker_context\
-$cmd_duration\
-$status\
-$jobs\
 $character"""
 
 [palettes.krypton]
@@ -47,11 +50,12 @@ krypton_dim = '#5C3A92'
 krypton_purple = '#8B5CF6'
 krypton_red = '#F14C4C'
 star_white = '#FFFFFF'
-star_dust = '#4B2A78'
+comet_mid = '#7047C7'
+star_dust = '#352052'
 
 [os]
 disabled = false
-format = '[$symbol](bold fg:krypton_bg bg:krypton_purple)'
+format = '[$symbol](bold krypton_purple) '
 
 [os.symbols]
 Windows = ''
@@ -60,7 +64,7 @@ Linux = ''
 
 [shell]
 disabled = false
-format = '[ $indicator](bold fg:krypton_bg bg:krypton_purple)'
+format = '[$indicator](bold krypton_purple) '
 powershell_indicator = 'pwsh'
 cmd_indicator = 'cmd'
 bash_indicator = 'bash'
@@ -75,10 +79,10 @@ format = '[@$hostname]($style) '
 style = 'bold krypton_purple'
 
 [directory]
-format = '[ $path]($style)[$read_only]($read_only_style)'
-style = 'bold fg:krypton_bg bg:krypton_purple'
-read_only = ' '
-read_only_style = 'bold fg:krypton_red bg:krypton_purple'
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold krypton_fg'
+read_only = ' '
+read_only_style = 'bold krypton_red'
 truncation_length = 3
 truncation_symbol = '…/'
 home_symbol = '~'
@@ -146,13 +150,13 @@ style = 'bold krypton_red'
 
 [time]
 disabled = false
-format = '[](krypton_purple)[ 󰥔 $time ](bold fg:krypton_bg bg:krypton_purple)[](krypton_purple)'
+format = '[󰥔 $time]($style)'
 time_format = '%H:%M'
-style = 'krypton_purple'
+style = 'bold krypton_purple'
 
 [character]
-success_symbol = '[➜](bold krypton_purple)'
-error_symbol = '[➜](bold krypton_red)'
+success_symbol = '[✦](bold star_white) '
+error_symbol = '[✦](bold krypton_red) '
 vimcmd_symbol = '[❮](bold krypton_purple)'
 vimcmd_replace_one_symbol = '[❮](bold krypton_purple)'
 vimcmd_replace_symbol = '[❮](bold krypton_purple)'
