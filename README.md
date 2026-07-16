@@ -40,12 +40,47 @@ Set-Location .\cosmic-starship
 ```sh
 git clone https://github.com/t3m3d/cosmic-starship.git
 cd cosmic-starship
+./install.sh
+```
+
+If macOS reports `permission denied`, restore the executable permission and run
+the installer again:
+
+```sh
+chmod +x install.sh
+./install.sh
+```
+
+You can also run it without changing the file permission:
+
+```sh
 sh ./install.sh
+```
+
+If macOS blocks a downloaded copy because it is quarantined, inspect the file
+first and then remove the quarantine attribute from this script only:
+
+```sh
+xattr -l install.sh
+xattr -d com.apple.quarantine install.sh
+./install.sh
+```
+
+Install Starship itself first if it is not already available:
+
+```sh
+brew install starship
 ```
 
 Both installers use `STARSHIP_CONFIG` when it is set. Otherwise they install to
 `~/.config/starship.toml`. An existing configuration is copied to a timestamped
 backup before replacement.
+
+On macOS, `install.sh` also creates an idempotent zsh initialization hook and
+adds it to `~/.zshrc`. This is the shell Stem launches, so Cosmic Starship is
+active in new Stem panes, tabs, and windows. Existing `.zshrc` files are backed
+up before the hook is added. If Starship itself is missing, install it with
+`brew install starship` and open a new Stem window.
 
 Open a new shell after installation. Existing Starship sessions usually pick up
 the configuration on the next prompt.
