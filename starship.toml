@@ -1,0 +1,187 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+palette = 'krypton'
+scan_timeout = 30
+command_timeout = 800
+
+format = """
+[╭─](krypton_dim)\
+[](krypton_violet)\
+[  t3m3d ](bold fg:krypton_bg bg:krypton_violet)\
+[](krypton_violet) \
+$os\
+$hostname\
+$directory\
+${custom.github}\
+$git_branch\
+$git_status\
+$git_state\
+$fill\
+$cmd_duration\
+$status\
+$time\
+$line_break\
+[╰─](krypton_dim)\
+[✦](bold krypton_cyan) \
+$nodejs\
+$python\
+$rust\
+$golang\
+$dotnet\
+$java\
+$kotlin\
+$lua\
+$swift\
+$docker_context\
+$character"""
+
+[palettes.krypton]
+krypton_bg = '#05070C'
+krypton_fg = '#D8DAD4'
+krypton_dim = '#7E899B'
+krypton_cyan = '#53E0D5'
+krypton_violet = '#9B7BF2'
+krypton_blue = '#3B8EEA'
+krypton_green = '#23D18B'
+krypton_amber = '#F5C451'
+krypton_red = '#F14C4C'
+
+[os]
+disabled = false
+format = '[$symbol](bold krypton_cyan) '
+
+[os.symbols]
+Windows = ''
+Macos = ''
+Linux = ''
+
+[hostname]
+ssh_only = true
+format = '[@$hostname]($style) '
+style = 'bold krypton_blue'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style) '
+style = 'bold krypton_cyan'
+read_only = ' '
+read_only_style = 'bold krypton_red'
+truncation_length = 4
+truncation_symbol = '…/'
+home_symbol = '~'
+
+[custom.github]
+description = 'GitHub remote'
+command = 'git config --get remote.origin.url'
+when = '''git config --get-regexp "^remote\..*\.url$" "github\.com[:/]"'''
+require_repo = true
+symbol = ' '
+style = 'bold krypton_fg'
+format = '[$symbol]($style)'
+
+[git_branch]
+format = '[on](krypton_dim) [$symbol$branch(:$remote_branch)]($style) '
+symbol = ' '
+style = 'bold krypton_violet'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = 'bold krypton_amber'
+conflicted = '='
+ahead = '⇡${count}'
+behind = '⇣${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+up_to_date = '✓'
+untracked = '?'
+stashed = '*'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '×'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = 'bold krypton_red'
+
+[fill]
+symbol = ' '
+
+[cmd_duration]
+min_time = 500
+format = '[󱎫 $duration]($style) '
+style = 'bold krypton_amber'
+show_milliseconds = false
+
+[status]
+disabled = false
+format = '[$symbol$status]($style) '
+symbol = '✘ '
+success_symbol = ''
+style = 'bold krypton_red'
+
+[time]
+disabled = false
+format = '[󰥔 $time]($style)'
+time_format = '%H:%M'
+style = 'krypton_dim'
+
+[character]
+success_symbol = '[❯](bold krypton_cyan)'
+error_symbol = '[❯](bold krypton_red)'
+vimcmd_symbol = '[❮](bold krypton_green)'
+vimcmd_replace_one_symbol = '[❮](bold krypton_violet)'
+vimcmd_replace_symbol = '[❮](bold krypton_violet)'
+vimcmd_visual_symbol = '[❮](bold krypton_amber)'
+
+[nodejs]
+format = '[$symbol($version )]($style)'
+symbol = '⬢ '
+style = 'bold krypton_green'
+
+[python]
+format = '[$symbol${pyenv_prefix}(${version})( \($virtualenv\)) ]($style)'
+symbol = ' '
+style = 'bold krypton_amber'
+
+[rust]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_red'
+
+[golang]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_cyan'
+
+[dotnet]
+format = '[$symbol($version )(🎯 $tfm )]($style)'
+symbol = ' '
+style = 'bold krypton_violet'
+
+[java]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_red'
+
+[kotlin]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_violet'
+
+[lua]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_blue'
+
+[swift]
+format = '[$symbol($version )]($style)'
+symbol = ' '
+style = 'bold krypton_amber'
+
+[docker_context]
+format = '[$symbol$context]($style) '
+symbol = ' '
+style = 'bold krypton_blue'
+
+[package]
+disabled = true
